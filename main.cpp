@@ -10,6 +10,7 @@ int main () {
 std::unique_ptr<std::vector<std::shared_ptr<Test>>> vec_ptr; // vec pointer is an object // creates object on the stack
 vec_ptr = make();// call the function make to make the pointer
 
+ std::cout << "How many data points do you want to enter: ";
 
 return 0;
 }
