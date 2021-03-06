@@ -13,11 +13,15 @@ public:
 };
 
 // Function prototypes
-std::unique_ptr<std::vector<std::shared_ptr<Test>>> make(); // create unique pointer that points to the vector
+ auto make(); // create unique pointer that points to the vector
 void fill(std::vector<std::shared_ptr<Test>> &vec, int num); // loop through elements
 void display(const std::vector<std::shared_ptr<Test>>&vec);  // displaying what ever is in the fector
 
 
+
+auto make() {
+    return std::make_unique<std::vector<std::shared_ptr<Test>>>(); // created the unique pointer
+}
 
 void fill(std::vector<std::shared_ptr<Test>> &vec, int num)  { // loop through vector
     int temp;
@@ -30,6 +34,15 @@ void fill(std::vector<std::shared_ptr<Test>> &vec, int num)  { // loop through v
         
     }
 }
+
+
+void display(const std::vector<std::shared_ptr<Test>>&vec) { // display vector
+    std::cout << "\nDisplaying vector data" << std::endl;
+    std::cout << "=======================" << std::endl;
+    for (const auto &ptr: vec) 
+        std::cout << ptr->get_data() << std::endl; // dereferance pointer to get data
+   
+    std::cout << "=======================" << std::endl;
 
 int main () {
 // unique= pointer that manages a raw pointer
