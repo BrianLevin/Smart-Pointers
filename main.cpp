@@ -4,6 +4,7 @@
 
 // Function prototypes
 std::unique_ptr<std::vector<std::shared_ptr<Test>>> make();
+void fill(std::vector<std::shared_ptr<Test>> &vec, int num); // loop through elements
 
 int main () {
 // unique= pointer that manages a raw pointer
@@ -13,6 +14,7 @@ vec_ptr = make();// call the function make to make the pointer
  std::cout << "How many data points do you want to enter: ";
   int num;
     std::cin >> num;
+ fill(*vec_ptr, num); // dereferance vec pointer when call fill
 
 return 0;
 }
